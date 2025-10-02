@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Кулинарный помощник</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .recipe {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .ingredient {
+            margin: 10px 0;
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .no-recipe {
+            color: #666;
+            text-align: center;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="recipe">
+        {% if recipe %}
+            {% for ingredient, quantity in recipe.items %}
+                <div class="ingredient">
+                    <strong>{{ ingredient }}:</strong> {{ quantity }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="no-recipe">
+                Рецепт не найден
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
